@@ -7,6 +7,7 @@
     <title>Axiom5 Law Chambers</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
@@ -233,10 +234,12 @@
       </div>
 
   </div>
+  </section>
+
 
 
     <section id="insights-section" class="insights-section">
-        <h2><span class="quote-mark">“</span> insights</h2>
+        <h1 class="section-title"><span class="quote-mark">“</span> Insights</h1>
 
         <div class="carousel">
             <button class="carousel-btn prev">&#10094;</button>
@@ -272,6 +275,7 @@
         </div>
     </section>
 
+
 <section id="logo-strip" class="logo-strip">
   <div class="logo-marquee">
     <div class="logo-fade left"></div>
@@ -301,12 +305,11 @@
 </section>
 
     <section class="contact-section">
-        <div class="newsletter">
-            <p>To keep up with the latest in competition law and policy, subscribe to our newsletter</p>
-            <button class="newsletter-btn">CLICK HERE <span>📧</span></button>
-        </div>
+      <h1 class="section-title">Contact Us</h1>
+        <div class="contact-bg-text">GET IN TOUCH</div>
         <div class="contact-columns">
-            <div class="contact-left">
+            <div class="contact-left animate-contact">
+
                 <div class="contact-footer">
                     <div class="info-block">
                         <h4>for inquiries</h4>
@@ -318,9 +321,8 @@
                     </div>
                 </div>
             </div>
-            <div class="contact-right">
+            <div class="contact-right animate-contact">
                 <form class="contact-form">
-                    <p class="form-title">To get in touch:</p>
                     <div class="form-grid">
                         <div class="input-container">
                             <input required id="name" type="text" />
@@ -344,7 +346,7 @@
                             <label class="label" for="message">Message</label>
                             <div class="underline"></div>
                         </div>
-                        <button class="cta">
+                        <button class="cta contact-cta">
                             <span class="hover-underline-animation"> Submit </span>
                             <svg
                               id="arrow-horizontal"
@@ -370,19 +372,22 @@
     </section>
 
     <footer class="site-footer">
-  <div class="footer-top">
-    <div class="footer-logo">
+  <div class="footer-grid">
+    <div class="footer-col logo-col">
       <img src="https://axiom5.in/wp-content/uploads/2022/11/footer-Logo.svg" alt="Axiom5 Logo" />
+      <!-- <div class="footer-brand">axiom5<br><span>LAW CHAMBERS</span></div> -->
     </div>
-    <div class="footer-links">
-      <a href="#">who we are</a>
+    <div class="footer-col">
+      <a  href="#">who we are</a><br>
       <a href="#">what we do</a>
-      <a href="#">how we work</a>
+    </div>
+    <div class="footer-col">
+      <a href="#">how we work</a><br>
       <a href="#">insights</a>
-      <a href="#">opportunities</a>
-      <a href="#" class="linkedin-icon">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
+    </div>
+    <div class="footer-col">
+      <a href="#">opportunities</a><br>
+      <a href="#" class="linkedin-icon"><i class="fab fa-linkedin-in"></i></a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -897,6 +902,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
   animateRing(0);
 });
+</script>
+
+<script>
+// Animate .animate-contact elements on scroll
+(function() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.animate-contact').forEach(el => observer.observe(el));
+})();
 </script>
 
 </body>
